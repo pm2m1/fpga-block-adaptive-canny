@@ -1,0 +1,3 @@
+# Phase 7 verification boundary
+
+No synthesizable hysteresis variant or new SystemVerilog testbench was needed for this decision phase. `scripts/phase7/verify_trace_local.py` replays the **actual Phase 6 RTL NMS trace** through the independently maintained, cycle-exact local-window model and compares all 614,400 valid production output pixels and controls. `model/phase7/tests.py` exhausts all 19,683 possible 3×3 class windows against the literal RTL Boolean equation and tests ten directed class maps. The underlying Phase 6 RTL trace was already checked stage-by-stage against Python during Phase 6 (`reports/PHASE6_RUNTIME_THRESHOLDS.md`).

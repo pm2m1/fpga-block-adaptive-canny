@@ -1,0 +1,1 @@
+sv xil_defaultlib "../../tb/phase10/tb_phase10.sv"

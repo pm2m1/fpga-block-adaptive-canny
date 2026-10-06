@@ -1,0 +1,21 @@
+{
+  "suite": "small",
+  "width": 640,
+  "height": 16,
+  "frames": [
+    "black",
+    "white",
+    "impulse",
+    "vertical",
+    "horizontal",
+    "diagonal45",
+    "diagonal135",
+    "ramp",
+    "checkerboard",
+    "random"
+  ],
+  "pixels_per_frame": 10240,
+  "stream": "results/phase5/small.stream",
+  "random_seed": 6070558,
+  "monkey_conversion": "24-bit BMP BGR decoded top-down; Y=(77R+150G+29B)>>8"
+}

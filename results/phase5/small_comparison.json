@@ -1,0 +1,15 @@
+{
+  "suite": "small",
+  "frames": 10,
+  "pixels_per_frame": 10240,
+  "samples_compared": {
+    "gaussian": 102400,
+    "sobel": 102400,
+    "cordic": 102400,
+    "threshold": 102400,
+    "nms": 102400,
+    "edge": 102400
+  },
+  "mismatches": 0,
+  "unknowns": 0
+}

@@ -1,0 +1,13 @@
+vectors_tested=1042441
+minimum_magnitude=0
+maximum_magnitude=1442
+maximum_absolute_error=1.000000000
+mean_absolute_error=0.480821950
+rms_error=0.562529810
+internal_overflow_count=0
+output_clamp_count=0
+wraparound_count=0
+ideal_direction_disagreement_count=4
+maximum_boundary_distance_degrees=0.000103869
+monotonicity_decreases_with_increasing_gx=0
+monotonicity_decreases_with_increasing_gy=0

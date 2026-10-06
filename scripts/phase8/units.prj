@@ -1,0 +1,4 @@
+verilog xil_defaultlib "../../rtl/phase8/histogram_unit_phase8.v"
+verilog xil_defaultlib "../../rtl/phase8/adaptive_threshold_step_phase8.v"
+sv xil_defaultlib "../../tb/phase8/tb_phase8_histogram.sv"
+sv xil_defaultlib "../../tb/phase8/tb_phase8_threshold.sv"

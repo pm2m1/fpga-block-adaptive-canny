@@ -1,0 +1,7 @@
+design,engine_count,block_w,block_h,hist_bins,resource_stage,LUT,FF,LUTRAM,RAMB18,RAMB36,BRAM18eq,DSP,route_WNS_ns,route_TNS_ns,frame_cadence_cycles,processing_cycles_single_shot,power_static_W,power_dynamic_W,power_total_W,power_confidence,physical_board_test
+Phase6_global,0,0,0,0,synthesis,1670,1861,,8,0,8,0,0.792,0,,,,,,,no
+Phase9_adaptive_E1,1,32,32,32,synthesis,3824,3055,645,8,22,52,0,0.947,0,318968,,,,,,no
+Phase10_adaptive_E1,1,32,32,32,synthesis,3834,3059,645,8,22,52,0,0.960,0,318968,,,,,,no
+Phase10_adaptive_E2,2,32,32,32,synthesis,6058,4252,1285,8,44,96,0,0.675,0,318968,,,,,,no
+Phase10_adaptive_E4,4,32,32,32,synthesis,10299,6627,2565,8,88,184,0,0.644,0,318968,,,,,,no
+Phase11_board_wrapper,1,32,32,32,synthesis,4063,3299,644,8,118,244,0,0.436,0,,339885,0.103,0.101,0.204,low_vectorless,no

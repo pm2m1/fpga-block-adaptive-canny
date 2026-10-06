@@ -1,0 +1,2 @@
+verilog xil_defaultlib "../../rtl/phase6/canny_threshold_classify_phase6.v"
+sv xil_defaultlib "../../tb/phase6/tb_threshold_phase6.sv"

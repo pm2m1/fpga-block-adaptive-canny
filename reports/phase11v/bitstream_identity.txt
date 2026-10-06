@@ -1,0 +1,8 @@
+checkpoint=3b960d1
+target=xc7a100tcsg324-1
+bitstream=results/phase11/canny_nexys_a7.bit
+bitstream_bytes=3826006
+bitstream_sha256=c8e04b06d54fa59b0cda3ac7c219da78766021f0e91fa43d4c7b85b5e5d9513d
+routed_checkpoint=results/phase11/canny_nexys_a7_phase11_rev3_routed.dcp
+routed_checkpoint_bytes=4113980
+physical_board_available=NO

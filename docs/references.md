@@ -1,0 +1,5 @@
+# References and source credits
+
+- J. Canny, “A Computational Approach to Edge Detection,” *IEEE Transactions on Pattern Analysis and Machine Intelligence*, 8(6), 679–698, 1986. [Paper](https://www.cs.princeton.edu/courses/archive/fall13/cos429/papers/Canny86.pdf), DOI: [10.1109/TPAMI.1986.4767851](https://doi.org/10.1109/TPAMI.1986.4767851). The FPGA implementation here is not a literal implementation of every part of this paper.
+- Q. Xu, S. Varadarajan, C. Chakrabarti, and L. J. Karam, “A Distributed Canny Edge Detector: Algorithm and FPGA Implementation,” *IEEE Transactions on Image Processing*, 23(7), 2014. [Arizona State University publication record](https://asu.elsevierpure.com/en/publications/a-distributed-canny-edge-detector-algorithm-and-fpga-implementati/). This repository uses a shared raster front end and block-local threshold statistics; it does not reproduce Xu et al.'s independent overlapping-block architecture.
+- Digilent, [Nexys A7-100T master XDC](https://github.com/Digilent/digilent-xdc/blob/master/Nexys-A7-100T-Master.xdc). The Phase 11 XDC selects only used board pins.

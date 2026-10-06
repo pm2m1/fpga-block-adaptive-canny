@@ -1,0 +1,4 @@
+# Failed wrong-library SDF annotation log is retained locally; >250 MB.
+post_route_timesim_wrong_library_xelab.log
+# Retain the full failed SDF diagnostic locally, but avoid a 9 MB Git log.
+post_route_timesim_xsim.log

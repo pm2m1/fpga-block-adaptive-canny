@@ -1,0 +1,12 @@
+{
+  "depth_0_is_original_strong": true,
+  "counts_by_depth": [
+    117451,
+    3991,
+    235,
+    28,
+    9,
+    1
+  ],
+  "unreachable_weak": 391
+}

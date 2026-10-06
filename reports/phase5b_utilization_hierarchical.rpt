@@ -1,0 +1,45 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Oct  4 00:34:01 2026
+| Host         : Kiyopon running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file reports/phase5b_utilization_hierarchical.rpt
+| Design       : canny_edge_detect_phase5b_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++---------------------------------------+---------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|                Instance               |                    Module                   | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++---------------------------------------+---------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| canny_edge_detect_phase5b_top         |                                       (top) |       1659 |       1654 |       0 |    5 | 1839 |      0 |      8 |          0 |
+|   (canny_edge_detect_phase5b_top)     |                                       (top) |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   u_gaussian                          |               image_gaussian_filter_phase5b |        110 |        110 |       0 |    0 |  190 |      0 |      2 |          0 |
+|     u_matrix_generate_3x3_phase5b     |               matrix_generate_3x3_phase5b_3 |         98 |         98 |       0 |    0 |  146 |      0 |      2 |          0 |
+|       (u_matrix_generate_3x3_phase5b) |               matrix_generate_3x3_phase5b_3 |         65 |         65 |       0 |    0 |   80 |      0 |      0 |          0 |
+|       u_one_column_ram                |                            one_column_ram_4 |         33 |         33 |       0 |    0 |   66 |      0 |      2 |          0 |
+|   u_gradient                          |                  canny_get_gradient_phase5b |       1368 |       1363 |       0 |    5 | 1361 |      0 |      2 |          0 |
+|     (u_gradient)                      |                  canny_get_gradient_phase5b |         30 |         30 |       0 |    0 |   86 |      0 |      0 |          0 |
+|     u_cordic                          |                     cordic_gradient_phase4b |       1230 |       1225 |       0 |    5 | 1131 |      0 |      0 |          0 |
+|     u_matrix                          |                 matrix_generate_3x3_phase5b |        108 |        108 |       0 |    0 |  144 |      0 |      2 |          0 |
+|       (u_matrix)                      |                 matrix_generate_3x3_phase5b |         75 |         75 |       0 |    0 |   78 |      0 |      0 |          0 |
+|       u_one_column_ram                |                              one_column_ram |         33 |         33 |       0 |    0 |   66 |      0 |      2 |          0 |
+|   u_local_3x3                         |               canny_doubleThreshold_phase5b |         40 |         40 |       0 |    0 |   71 |      0 |      2 |          0 |
+|   u_nms                               |              canny_nonLocalMaxValue_phase5b |        141 |        141 |       0 |    0 |  217 |      0 |      2 |          0 |
+|     u_matrix                          | matrix_generate_3x3_phase5b__parameterized0 |        140 |        140 |       0 |    0 |  212 |      0 |      2 |          0 |
+|       (u_matrix)                      | matrix_generate_3x3_phase5b__parameterized0 |         91 |         91 |       0 |    0 |  119 |      0 |      0 |          0 |
+|       u_one_column_ram                |              one_column_ram__parameterized0 |         49 |         49 |       0 |    0 |   93 |      0 |      2 |          0 |
+|         (u_one_column_ram)            |              one_column_ram__parameterized0 |          6 |          6 |       0 |    0 |   53 |      0 |      0 |          0 |
++---------------------------------------+---------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

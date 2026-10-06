@@ -1,0 +1,13 @@
+Phase 1 warnings: unavailable. No Vivado/XSim executable was found, so no compile,
+elaboration, or simulation diagnostics were produced in this workspace.
+Do not confuse this with a warning-free compile.
+
+CURRENT 2026-10-03 VIVADO SIMULATOR 2026.1 RESULT (supersedes above):
+xvlog: 0 warnings, 0 errors.
+xelab: 17 warnings, 0 errors.
+  1 width mismatch: 16-bit actual vs 22-bit formal sqrt_out,
+    rtl/baseline/canny_get_grandient.v:180.
+  16 width mismatches: 32-bit actual vs 6-bit formal pipline_level,
+    rtl/baseline/cordic_sqrt.v:42-57.
+xsim: 0 runtime warnings/errors in the completed 9 ms run.
+See reports/phase1_xelab.log for complete original diagnostics.

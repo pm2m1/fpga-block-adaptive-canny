@@ -1,0 +1,4 @@
+engines,adaptive_cycles,frame_cadence_cycles,first_output_latency,last_output_latency,core_cadence_fps,cycles_per_pixel,adaptive_speedup,adaptive_efficiency,system_speedup,system_efficiency
+1,298115,318968,21901,658851,313.51107321110584,1.0383072916666667,1.0,1.0,1.0,1.0
+2,298115,318968,21901,658851,313.51107321110584,1.0383072916666667,1.0,0.5,1.0,0.5
+4,298115,318968,21901,658851,313.51107321110584,1.0383072916666667,1.0,0.25,1.0,0.25

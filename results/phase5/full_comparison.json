@@ -1,0 +1,15 @@
+{
+  "suite": "full",
+  "frames": 2,
+  "pixels_per_frame": 307200,
+  "samples_compared": {
+    "gaussian": 614400,
+    "sobel": 614400,
+    "cordic": 614400,
+    "threshold": 614400,
+    "nms": 614400,
+    "edge": 614400
+  },
+  "mismatches": 0,
+  "unknowns": 0
+}

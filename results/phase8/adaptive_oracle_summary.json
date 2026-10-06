@@ -1,0 +1,18 @@
+{
+  "frames": 2,
+  "pixels_per_frame": 307200,
+  "blocks_per_frame": 300,
+  "quantization_high_mean_abs": 26.416666666666668,
+  "quantization_high_median_abs": 22.0,
+  "quantization_high_max_abs": 63,
+  "quantization_low_mean_abs": 10.608333333333333,
+  "quantization_low_max_abs": 26,
+  "spatial_edge_differences_32bin_vs_exact": [
+    13938,
+    28154
+  ],
+  "images": [
+    "random",
+    "monkey"
+  ]
+}

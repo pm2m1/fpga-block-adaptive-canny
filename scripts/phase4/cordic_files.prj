@@ -1,0 +1,2 @@
+verilog xil_defaultlib "../../rtl/phase4/cordic_gradient_phase4.v"
+sv xil_defaultlib "../../tb/phase4/tb_cordic_phase4.sv"

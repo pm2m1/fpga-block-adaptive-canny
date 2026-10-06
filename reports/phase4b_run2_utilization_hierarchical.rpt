@@ -1,0 +1,45 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sat Oct  3 17:53:28 2026
+| Host         : Kiyopon running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file reports/phase4b_run2_utilization_hierarchical.rpt
+| Design       : canny_edge_detect_phase4b_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------------------+-------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|              Instance             |                Module               | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------------------+-------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| canny_edge_detect_phase4b_top     |                               (top) |       1654 |       1648 |       0 |    6 | 1828 |      0 |      8 |          0 |
+|   (canny_edge_detect_phase4b_top) |                               (top) |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   u_gaussian                      |               image_gaussian_filter |        110 |        109 |       0 |    1 |  186 |      0 |      2 |          0 |
+|     u_matrix_generate_3x3         |               matrix_generate_3x3_3 |         96 |         96 |       0 |    0 |  143 |      0 |      2 |          0 |
+|       (u_matrix_generate_3x3)     |               matrix_generate_3x3_3 |         55 |         55 |       0 |    0 |   77 |      0 |      0 |          0 |
+|       u_one_column_ram            |                    one_column_ram_4 |         41 |         41 |       0 |    0 |   66 |      0 |      2 |          0 |
+|   u_gradient                      |          canny_get_gradient_phase4b |       1365 |       1361 |       0 |    4 | 1357 |      0 |      2 |          0 |
+|     (u_gradient)                  |          canny_get_gradient_phase4b |         31 |         31 |       0 |    0 |   86 |      0 |      0 |          0 |
+|     u_cordic                      |             cordic_gradient_phase4b |       1228 |       1224 |       0 |    4 | 1129 |      0 |      0 |          0 |
+|     u_matrix                      |                 matrix_generate_3x3 |        106 |        106 |       0 |    0 |  142 |      0 |      2 |          0 |
+|       (u_matrix)                  |                 matrix_generate_3x3 |         65 |         65 |       0 |    0 |   76 |      0 |      0 |          0 |
+|       u_one_column_ram            |                      one_column_ram |         41 |         41 |       0 |    0 |   66 |      0 |      2 |          0 |
+|   u_local_3x3                     |               canny_doubleThreshold |         40 |         39 |       0 |    1 |   70 |      0 |      2 |          0 |
+|   u_nms                           |       canny_nonLocalMaxValue_phase4 |        139 |        139 |       0 |    0 |  215 |      0 |      2 |          0 |
+|     u_matrix                      | matrix_generate_3x3__parameterized0 |        138 |        138 |       0 |    0 |  210 |      0 |      2 |          0 |
+|       (u_matrix)                  | matrix_generate_3x3__parameterized0 |         89 |         89 |       0 |    0 |  117 |      0 |      0 |          0 |
+|       u_one_column_ram            |      one_column_ram__parameterized0 |         49 |         49 |       0 |    0 |   93 |      0 |      2 |          0 |
+|         (u_one_column_ram)        |      one_column_ram__parameterized0 |          6 |          6 |       0 |    0 |   53 |      0 |      0 |          0 |
++-----------------------------------+-------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

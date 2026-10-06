@@ -1,0 +1,3 @@
+run 25000 ns
+puts "PHASE11V_NETLIST_STARTUP_SMOKE_COMPLETE simulated_ns=25000"
+quit

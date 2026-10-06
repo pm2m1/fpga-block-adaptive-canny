@@ -1,0 +1,52 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Mon Oct  5 16:17:56 2026
+| Host         : Kiyopon running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file reports/phase10/e2_utilization_hierarchical.rpt
+| Design       : canny_block_adaptive_phase10_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++---------------------------------------+---------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|                Instance               |                    Module                   | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++---------------------------------------+---------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| canny_block_adaptive_phase10_top      |                                       (top) |       6058 |       4773 |    1280 |    5 | 4252 |     44 |      8 |          0 |
+|   (canny_block_adaptive_phase10_top)  |                                       (top) |         26 |         26 |       0 |    0 |   65 |      0 |      0 |          0 |
+|   g_engine[0].u_engine                |               block_adaptive_engine_phase10 |       2168 |       1528 |     640 |    0 | 1168 |     22 |      0 |          0 |
+|     (g_engine[0].u_engine)            |               block_adaptive_engine_phase10 |        744 |        744 |       0 |    0 |  728 |     22 |      0 |          0 |
+|     g_bank[0].u_hist                  |                     histogram_unit_phase9_9 |        696 |        376 |     320 |    0 |  220 |      0 |      0 |          0 |
+|     g_bank[1].u_hist                  |                    histogram_unit_phase9_10 |        728 |        408 |     320 |    0 |  220 |      0 |      0 |          0 |
+|   g_engine[1].u_engine                |             block_adaptive_engine_phase10_0 |       2154 |       1514 |     640 |    0 | 1167 |     22 |      0 |          0 |
+|     (g_engine[1].u_engine)            |             block_adaptive_engine_phase10_0 |        730 |        730 |       0 |    0 |  727 |     22 |      0 |          0 |
+|     g_bank[0].u_hist                  |                       histogram_unit_phase9 |        696 |        376 |     320 |    0 |  220 |      0 |      0 |          0 |
+|     g_bank[1].u_hist                  |                     histogram_unit_phase9_8 |        728 |        408 |     320 |    0 |  220 |      0 |      0 |          0 |
+|   u_gaussian                          |               image_gaussian_filter_phase5b |        110 |        110 |       0 |    0 |  189 |      0 |      2 |          0 |
+|     u_matrix_generate_3x3_phase5b     |               matrix_generate_3x3_phase5b_4 |         98 |         98 |       0 |    0 |  145 |      0 |      2 |          0 |
+|       (u_matrix_generate_3x3_phase5b) |               matrix_generate_3x3_phase5b_4 |         65 |         65 |       0 |    0 |   79 |      0 |      0 |          0 |
+|       u_one_column_ram                |                            one_column_ram_5 |         33 |         33 |       0 |    0 |   66 |      0 |      2 |          0 |
+|   u_gradient                          |                   canny_gradient_raw_phase8 |       1365 |       1360 |       0 |    5 | 1359 |      0 |      2 |          0 |
+|     (u_gradient)                      |                   canny_gradient_raw_phase8 |         30 |         30 |       0 |    0 |   84 |      0 |      0 |          0 |
+|     u_cordic                          |                     cordic_gradient_phase4b |       1227 |       1222 |       0 |    5 | 1131 |      0 |      0 |          0 |
+|     u_matrix                          |                 matrix_generate_3x3_phase5b |        108 |        108 |       0 |    0 |  144 |      0 |      2 |          0 |
+|       (u_matrix)                      |                 matrix_generate_3x3_phase5b |         75 |         75 |       0 |    0 |   78 |      0 |      0 |          0 |
+|       u_one_column_ram                |                              one_column_ram |         33 |         33 |       0 |    0 |   66 |      0 |      2 |          0 |
+|   u_local_3x3                         |               canny_doubleThreshold_phase5b |         39 |         39 |       0 |    0 |   68 |      0 |      2 |          0 |
+|   u_nms                               |                  canny_nms_magnitude_phase8 |        196 |        196 |       0 |    0 |  236 |      0 |      2 |          0 |
+|     u_matrix                          | matrix_generate_3x3_phase5b__parameterized0 |        163 |        163 |       0 |    0 |  202 |      0 |      2 |          0 |
+|       (u_matrix)                      | matrix_generate_3x3_phase5b__parameterized0 |        115 |        115 |       0 |    0 |  115 |      0 |      0 |          0 |
+|       u_one_column_ram                |              one_column_ram__parameterized0 |         48 |         48 |       0 |    0 |   87 |      0 |      2 |          0 |
++---------------------------------------+---------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

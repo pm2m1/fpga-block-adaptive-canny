@@ -1,0 +1,11 @@
+case,class_map,one_pass,recursive,differing,max_depth
+single_strong,S....,10000,10000,0,0
+isolated_weak,W....,00000,00000,0,-1
+adjacent_weak,SW...,11000,11000,0,1
+two_weak_chain,SWW..,11000,11100,1,2
+five_weak_chain,SWWWWW.,1100000,1111110,4,5
+diagonal_chain,S...../.W..../..W.../...W../....W.,100000/010000/000000/000000/000000,100000/010000/001000/000100/000010,3,4
+branching_chain,..W../.WW../SWW../.WW../..W..,00000/01000/11000/01000/00000,00100/01100/11100/01100/00100,5,2
+connected_loop,SWWWW/.W..W/.W..W/.WWWW,11000/01000/00000/00000,11111/01001/01001/01111,10,5
+weak_island,S...../....../...WW./...WW.,100000/000000/000000/000000,100000/000000/000000/000000,0,0
+two_strong_bridge,SWWWWWS,1100011,1111111,3,3

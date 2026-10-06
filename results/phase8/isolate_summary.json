@@ -1,0 +1,24 @@
+{
+  "suite": "isolate",
+  "images": [
+    "black",
+    "monkey_after_black",
+    "white",
+    "monkey_after_white"
+  ],
+  "frames": 4,
+  "blocks": 1200,
+  "samples": 1228800,
+  "mean_abs_high_error": 16.486666666666668,
+  "median_abs_high_error": 0.0,
+  "max_abs_high_error": 63,
+  "mean_abs_low_error": 6.623333333333333,
+  "max_abs_low_error": 26,
+  "edge_differences_32bin_vs_exact": [
+    0,
+    28154,
+    0,
+    28154
+  ],
+  "isolation_model_pass": true
+}

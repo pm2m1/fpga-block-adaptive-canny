@@ -1,0 +1,36 @@
+{
+  "suite": "patterns",
+  "images": [
+    "black",
+    "white",
+    "impulse",
+    "horizontal",
+    "vertical",
+    "diagonal45",
+    "diagonal135",
+    "checkerboard",
+    "random",
+    "monkey"
+  ],
+  "frames": 10,
+  "blocks": 3000,
+  "samples": 3072000,
+  "mean_abs_high_error": 5.625333333333334,
+  "median_abs_high_error": 0.0,
+  "max_abs_high_error": 63,
+  "mean_abs_low_error": 2.2556666666666665,
+  "max_abs_low_error": 26,
+  "edge_differences_32bin_vs_exact": [
+    0,
+    0,
+    8,
+    0,
+    0,
+    648,
+    649,
+    0,
+    13938,
+    28154
+  ],
+  "isolation_model_pass": false
+}

@@ -1,0 +1,11 @@
+{
+  "pairs": 9,
+  "total_pixels": 1280000,
+  "total_differing": 36035,
+  "max_depth": 76,
+  "full_frame_pairs": 4,
+  "source": "Phase 6 RTL traces already verified against bit-accurate Python; synthetic maps from Phase 6 Python model",
+  "natural_images_available": [
+    "monkey.bmp"
+  ]
+}

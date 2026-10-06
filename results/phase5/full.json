@@ -1,0 +1,13 @@
+{
+  "suite": "full",
+  "width": 640,
+  "height": 480,
+  "frames": [
+    "random_full",
+    "monkey"
+  ],
+  "pixels_per_frame": 307200,
+  "stream": "results/phase5/full.stream",
+  "random_seed": 6070558,
+  "monkey_conversion": "24-bit BMP BGR decoded top-down; Y=(77R+150G+29B)>>8"
+}

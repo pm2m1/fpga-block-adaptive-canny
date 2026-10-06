@@ -1,0 +1,65 @@
+{
+  "width": 640,
+  "height": 480,
+  "source_bmp": "images/monkey.bmp",
+  "conversion": "24-bit BMP BGR decoded top-down; Y=(77R+150G+29B)>>8",
+  "rom_sha256": "beaf0cefd564b485ca28e467c7a5eba3cd380d4a94fe195101443bbce4c88429",
+  "rom_pixels": 307200,
+  "output_packing": "raster order; first pixel in byte bit 7 (MSB)",
+  "tests": [
+    {
+      "id": 0,
+      "name": "monkey",
+      "pixels": 307200,
+      "blocks": 300,
+      "edge_pixels": 58229,
+      "golden_bytes": 38400,
+      "golden_sha256": "dac0ed8d698ea4a746a5a337ee34e35efddca115f5165c4a1cd2b43739dfa6d9"
+    },
+    {
+      "id": 1,
+      "name": "black",
+      "pixels": 307200,
+      "blocks": 300,
+      "edge_pixels": 0,
+      "golden_bytes": 38400,
+      "golden_sha256": "5c9b37300155c1f3338bc88f17d69c51fb248b0de0155630962ca6504d789bba"
+    },
+    {
+      "id": 2,
+      "name": "white",
+      "pixels": 307200,
+      "blocks": 300,
+      "edge_pixels": 0,
+      "golden_bytes": 38400,
+      "golden_sha256": "5c9b37300155c1f3338bc88f17d69c51fb248b0de0155630962ca6504d789bba"
+    },
+    {
+      "id": 3,
+      "name": "vertical",
+      "pixels": 307200,
+      "blocks": 300,
+      "edge_pixels": 0,
+      "golden_bytes": 38400,
+      "golden_sha256": "5c9b37300155c1f3338bc88f17d69c51fb248b0de0155630962ca6504d789bba"
+    },
+    {
+      "id": 4,
+      "name": "horizontal",
+      "pixels": 307200,
+      "blocks": 300,
+      "edge_pixels": 0,
+      "golden_bytes": 38400,
+      "golden_sha256": "5c9b37300155c1f3338bc88f17d69c51fb248b0de0155630962ca6504d789bba"
+    },
+    {
+      "id": 5,
+      "name": "checkerboard",
+      "pixels": 307200,
+      "blocks": 300,
+      "edge_pixels": 0,
+      "golden_bytes": 38400,
+      "golden_sha256": "5c9b37300155c1f3338bc88f17d69c51fb248b0de0155630962ca6504d789bba"
+    }
+  ]
+}

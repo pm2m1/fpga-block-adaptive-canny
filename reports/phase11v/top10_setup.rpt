@@ -1,0 +1,817 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Tue Oct  6 04:16:35 2026
+| Host         : Kiyopon running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 10 -file reports/phase11v/top10_setup.rpt
+| Design       : canny_nexys_a7_phase11_top
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.436ns  (required time - arrival time)
+  Source:                 u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_core/g_engine[0].u_engine/block_high_reg[1][0][6]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.101ns  (logic 3.858ns (42.389%)  route 5.243ns (57.611%))
+  Logic Levels:           10  (CARRY4=5 LUT2=1 LUT3=2 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.034ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.912ns = ( 14.912 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.205ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  clk100mhz
+                         net (fo=0)                   0.000     0.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.603     5.205    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X65Y121        FDRE                                         r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y121        FDRE (Prop_fdre_C_Q)         0.456     5.661 r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/Q
+                         net (fo=106, routed)         0.694     6.356    u_core/g_engine[0].u_engine/scan_first_pipe
+    SLICE_X63Y121        LUT3 (Prop_lut3_I0_O)        0.124     6.480 r  u_core/g_engine[0].u_engine/cumulative[3]_i_9/O
+                         net (fo=1, routed)           0.000     6.480    u_core/g_engine[0].u_engine/cumulative[3]_i_9_n_0
+    SLICE_X63Y121        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.030 r  u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.030    u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2_n_0
+    SLICE_X63Y122        CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.269 r  u_core/g_engine[0].u_engine/cumulative_reg[7]_i_2/O[2]
+                         net (fo=4, routed)           0.612     7.881    u_core/g_engine[0].u_engine/cumulative_next[6]
+    SLICE_X65Y122        LUT2 (Prop_lut2_I1_O)        0.302     8.183 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33/O
+                         net (fo=1, routed)           0.000     8.183    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33_n_0
+    SLICE_X65Y122        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.733 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27/CO[3]
+                         net (fo=1, routed)           0.000     8.733    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27_n_0
+    SLICE_X65Y123        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.067 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_25/O[1]
+                         net (fo=2, routed)           0.840     9.906    u_core/g_engine[0].u_engine/u_step/five_cumulative[10]
+    SLICE_X64Y125        LUT3 (Prop_lut3_I0_O)        0.303    10.209 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13/O
+                         net (fo=1, routed)           0.000    10.209    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13_n_0
+    SLICE_X64Y125        CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570    10.779 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6/CO[2]
+                         net (fo=3, routed)           0.719    11.498    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6_n_1
+    SLICE_X64Y130        LUT4 (Prop_lut4_I0_O)        0.313    11.811 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_5/O
+                         net (fo=107, routed)         1.371    13.182    u_core/g_engine[0].u_engine/selected0
+    SLICE_X54Y140        LUT5 (Prop_lut5_I4_O)        0.117    13.299 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_1/O
+                         net (fo=13, routed)          1.007    14.307    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_1_n_0
+    SLICE_X62Y136        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][0][6]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  clk100mhz
+                         net (fo=0)                   0.000    10.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.490    14.912    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X62Y136        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][0][6]/C
+                         clock pessimism              0.259    15.171    <hidden>
+                         clock uncertainty           -0.035    15.136    <hidden>
+    SLICE_X62Y136        FDRE (Setup_fdre_C_CE)      -0.393    14.743    u_core/g_engine[0].u_engine/block_high_reg[1][0][6]
+  -------------------------------------------------------------------
+                         required time                         14.743    <hidden>
+                         arrival time                         -14.307    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.436    <hidden>
+
+Slack (MET) :             0.436ns  (required time - arrival time)
+  Source:                 u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_core/g_engine[0].u_engine/block_high_reg[1][0][7]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.101ns  (logic 3.858ns (42.389%)  route 5.243ns (57.611%))
+  Logic Levels:           10  (CARRY4=5 LUT2=1 LUT3=2 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.034ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.912ns = ( 14.912 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.205ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  clk100mhz
+                         net (fo=0)                   0.000     0.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.603     5.205    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X65Y121        FDRE                                         r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y121        FDRE (Prop_fdre_C_Q)         0.456     5.661 r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/Q
+                         net (fo=106, routed)         0.694     6.356    u_core/g_engine[0].u_engine/scan_first_pipe
+    SLICE_X63Y121        LUT3 (Prop_lut3_I0_O)        0.124     6.480 r  u_core/g_engine[0].u_engine/cumulative[3]_i_9/O
+                         net (fo=1, routed)           0.000     6.480    u_core/g_engine[0].u_engine/cumulative[3]_i_9_n_0
+    SLICE_X63Y121        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.030 r  u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.030    u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2_n_0
+    SLICE_X63Y122        CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.269 r  u_core/g_engine[0].u_engine/cumulative_reg[7]_i_2/O[2]
+                         net (fo=4, routed)           0.612     7.881    u_core/g_engine[0].u_engine/cumulative_next[6]
+    SLICE_X65Y122        LUT2 (Prop_lut2_I1_O)        0.302     8.183 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33/O
+                         net (fo=1, routed)           0.000     8.183    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33_n_0
+    SLICE_X65Y122        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.733 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27/CO[3]
+                         net (fo=1, routed)           0.000     8.733    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27_n_0
+    SLICE_X65Y123        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.067 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_25/O[1]
+                         net (fo=2, routed)           0.840     9.906    u_core/g_engine[0].u_engine/u_step/five_cumulative[10]
+    SLICE_X64Y125        LUT3 (Prop_lut3_I0_O)        0.303    10.209 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13/O
+                         net (fo=1, routed)           0.000    10.209    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13_n_0
+    SLICE_X64Y125        CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570    10.779 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6/CO[2]
+                         net (fo=3, routed)           0.719    11.498    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6_n_1
+    SLICE_X64Y130        LUT4 (Prop_lut4_I0_O)        0.313    11.811 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_5/O
+                         net (fo=107, routed)         1.371    13.182    u_core/g_engine[0].u_engine/selected0
+    SLICE_X54Y140        LUT5 (Prop_lut5_I4_O)        0.117    13.299 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_1/O
+                         net (fo=13, routed)          1.007    14.307    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_1_n_0
+    SLICE_X62Y136        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][0][7]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  clk100mhz
+                         net (fo=0)                   0.000    10.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.490    14.912    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X62Y136        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][0][7]/C
+                         clock pessimism              0.259    15.171    <hidden>
+                         clock uncertainty           -0.035    15.136    <hidden>
+    SLICE_X62Y136        FDRE (Setup_fdre_C_CE)      -0.393    14.743    u_core/g_engine[0].u_engine/block_high_reg[1][0][7]
+  -------------------------------------------------------------------
+                         required time                         14.743    <hidden>
+                         arrival time                         -14.307    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.436    <hidden>
+
+Slack (MET) :             0.436ns  (required time - arrival time)
+  Source:                 u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_core/g_engine[0].u_engine/block_high_reg[1][0][8]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.101ns  (logic 3.858ns (42.389%)  route 5.243ns (57.611%))
+  Logic Levels:           10  (CARRY4=5 LUT2=1 LUT3=2 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.034ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.912ns = ( 14.912 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.205ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  clk100mhz
+                         net (fo=0)                   0.000     0.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.603     5.205    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X65Y121        FDRE                                         r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y121        FDRE (Prop_fdre_C_Q)         0.456     5.661 r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/Q
+                         net (fo=106, routed)         0.694     6.356    u_core/g_engine[0].u_engine/scan_first_pipe
+    SLICE_X63Y121        LUT3 (Prop_lut3_I0_O)        0.124     6.480 r  u_core/g_engine[0].u_engine/cumulative[3]_i_9/O
+                         net (fo=1, routed)           0.000     6.480    u_core/g_engine[0].u_engine/cumulative[3]_i_9_n_0
+    SLICE_X63Y121        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.030 r  u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.030    u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2_n_0
+    SLICE_X63Y122        CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.269 r  u_core/g_engine[0].u_engine/cumulative_reg[7]_i_2/O[2]
+                         net (fo=4, routed)           0.612     7.881    u_core/g_engine[0].u_engine/cumulative_next[6]
+    SLICE_X65Y122        LUT2 (Prop_lut2_I1_O)        0.302     8.183 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33/O
+                         net (fo=1, routed)           0.000     8.183    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33_n_0
+    SLICE_X65Y122        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.733 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27/CO[3]
+                         net (fo=1, routed)           0.000     8.733    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27_n_0
+    SLICE_X65Y123        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.067 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_25/O[1]
+                         net (fo=2, routed)           0.840     9.906    u_core/g_engine[0].u_engine/u_step/five_cumulative[10]
+    SLICE_X64Y125        LUT3 (Prop_lut3_I0_O)        0.303    10.209 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13/O
+                         net (fo=1, routed)           0.000    10.209    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13_n_0
+    SLICE_X64Y125        CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570    10.779 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6/CO[2]
+                         net (fo=3, routed)           0.719    11.498    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6_n_1
+    SLICE_X64Y130        LUT4 (Prop_lut4_I0_O)        0.313    11.811 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_5/O
+                         net (fo=107, routed)         1.371    13.182    u_core/g_engine[0].u_engine/selected0
+    SLICE_X54Y140        LUT5 (Prop_lut5_I4_O)        0.117    13.299 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_1/O
+                         net (fo=13, routed)          1.007    14.307    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_1_n_0
+    SLICE_X62Y136        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][0][8]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  clk100mhz
+                         net (fo=0)                   0.000    10.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.490    14.912    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X62Y136        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][0][8]/C
+                         clock pessimism              0.259    15.171    <hidden>
+                         clock uncertainty           -0.035    15.136    <hidden>
+    SLICE_X62Y136        FDRE (Setup_fdre_C_CE)      -0.393    14.743    u_core/g_engine[0].u_engine/block_high_reg[1][0][8]
+  -------------------------------------------------------------------
+                         required time                         14.743    <hidden>
+                         arrival time                         -14.307    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.436    <hidden>
+
+Slack (MET) :             0.459ns  (required time - arrival time)
+  Source:                 u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_core/g_engine[0].u_engine/block_high_reg[1][2][6]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.060ns  (logic 3.860ns (42.605%)  route 5.200ns (57.395%))
+  Logic Levels:           10  (CARRY4=5 LUT2=1 LUT3=2 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.033ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.913ns = ( 14.913 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.205ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  clk100mhz
+                         net (fo=0)                   0.000     0.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.603     5.205    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X65Y121        FDRE                                         r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y121        FDRE (Prop_fdre_C_Q)         0.456     5.661 r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/Q
+                         net (fo=106, routed)         0.694     6.356    u_core/g_engine[0].u_engine/scan_first_pipe
+    SLICE_X63Y121        LUT3 (Prop_lut3_I0_O)        0.124     6.480 r  u_core/g_engine[0].u_engine/cumulative[3]_i_9/O
+                         net (fo=1, routed)           0.000     6.480    u_core/g_engine[0].u_engine/cumulative[3]_i_9_n_0
+    SLICE_X63Y121        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.030 r  u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.030    u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2_n_0
+    SLICE_X63Y122        CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.269 r  u_core/g_engine[0].u_engine/cumulative_reg[7]_i_2/O[2]
+                         net (fo=4, routed)           0.612     7.881    u_core/g_engine[0].u_engine/cumulative_next[6]
+    SLICE_X65Y122        LUT2 (Prop_lut2_I1_O)        0.302     8.183 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33/O
+                         net (fo=1, routed)           0.000     8.183    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33_n_0
+    SLICE_X65Y122        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.733 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27/CO[3]
+                         net (fo=1, routed)           0.000     8.733    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27_n_0
+    SLICE_X65Y123        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.067 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_25/O[1]
+                         net (fo=2, routed)           0.840     9.906    u_core/g_engine[0].u_engine/u_step/five_cumulative[10]
+    SLICE_X64Y125        LUT3 (Prop_lut3_I0_O)        0.303    10.209 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13/O
+                         net (fo=1, routed)           0.000    10.209    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13_n_0
+    SLICE_X64Y125        CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570    10.779 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6/CO[2]
+                         net (fo=3, routed)           0.719    11.498    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6_n_1
+    SLICE_X64Y130        LUT4 (Prop_lut4_I0_O)        0.313    11.811 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_5/O
+                         net (fo=107, routed)         1.312    13.123    u_core/g_engine[0].u_engine/selected0
+    SLICE_X57Y139        LUT5 (Prop_lut5_I4_O)        0.119    13.242 r  u_core/g_engine[0].u_engine/block_high[1][2][10]_i_1/O
+                         net (fo=13, routed)          1.023    14.265    u_core/g_engine[0].u_engine/block_high[1][2][10]_i_1_n_0
+    SLICE_X64Y135        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][2][6]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  clk100mhz
+                         net (fo=0)                   0.000    10.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.491    14.913    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X64Y135        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][2][6]/C
+                         clock pessimism              0.259    15.172    <hidden>
+                         clock uncertainty           -0.035    15.137    <hidden>
+    SLICE_X64Y135        FDRE (Setup_fdre_C_CE)      -0.413    14.724    u_core/g_engine[0].u_engine/block_high_reg[1][2][6]
+  -------------------------------------------------------------------
+                         required time                         14.724    <hidden>
+                         arrival time                         -14.265    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.459    <hidden>
+
+Slack (MET) :             0.501ns  (required time - arrival time)
+  Source:                 u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_core/g_engine[0].u_engine/block_high_reg[1][1][6]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.016ns  (logic 3.860ns (42.815%)  route 5.156ns (57.185%))
+  Logic Levels:           10  (CARRY4=5 LUT2=1 LUT3=2 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.035ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.911ns = ( 14.911 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.205ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  clk100mhz
+                         net (fo=0)                   0.000     0.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.603     5.205    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X65Y121        FDRE                                         r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y121        FDRE (Prop_fdre_C_Q)         0.456     5.661 r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/Q
+                         net (fo=106, routed)         0.694     6.356    u_core/g_engine[0].u_engine/scan_first_pipe
+    SLICE_X63Y121        LUT3 (Prop_lut3_I0_O)        0.124     6.480 r  u_core/g_engine[0].u_engine/cumulative[3]_i_9/O
+                         net (fo=1, routed)           0.000     6.480    u_core/g_engine[0].u_engine/cumulative[3]_i_9_n_0
+    SLICE_X63Y121        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.030 r  u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.030    u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2_n_0
+    SLICE_X63Y122        CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.269 r  u_core/g_engine[0].u_engine/cumulative_reg[7]_i_2/O[2]
+                         net (fo=4, routed)           0.612     7.881    u_core/g_engine[0].u_engine/cumulative_next[6]
+    SLICE_X65Y122        LUT2 (Prop_lut2_I1_O)        0.302     8.183 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33/O
+                         net (fo=1, routed)           0.000     8.183    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33_n_0
+    SLICE_X65Y122        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.733 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27/CO[3]
+                         net (fo=1, routed)           0.000     8.733    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27_n_0
+    SLICE_X65Y123        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.067 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_25/O[1]
+                         net (fo=2, routed)           0.840     9.906    u_core/g_engine[0].u_engine/u_step/five_cumulative[10]
+    SLICE_X64Y125        LUT3 (Prop_lut3_I0_O)        0.303    10.209 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13/O
+                         net (fo=1, routed)           0.000    10.209    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13_n_0
+    SLICE_X64Y125        CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570    10.779 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6/CO[2]
+                         net (fo=3, routed)           0.719    11.498    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6_n_1
+    SLICE_X64Y130        LUT4 (Prop_lut4_I0_O)        0.313    11.811 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_5/O
+                         net (fo=107, routed)         1.290    13.101    u_core/g_engine[0].u_engine/selected0
+    SLICE_X57Y140        LUT5 (Prop_lut5_I4_O)        0.119    13.220 r  u_core/g_engine[0].u_engine/block_high[1][1][10]_i_1/O
+                         net (fo=13, routed)          1.001    14.221    u_core/g_engine[0].u_engine/block_high[1][1][10]_i_1_n_0
+    SLICE_X63Y134        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][1][6]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  clk100mhz
+                         net (fo=0)                   0.000    10.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.489    14.911    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X63Y134        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][1][6]/C
+                         clock pessimism              0.259    15.170    <hidden>
+                         clock uncertainty           -0.035    15.135    <hidden>
+    SLICE_X63Y134        FDRE (Setup_fdre_C_CE)      -0.413    14.722    u_core/g_engine[0].u_engine/block_high_reg[1][1][6]
+  -------------------------------------------------------------------
+                         required time                         14.722    <hidden>
+                         arrival time                         -14.221    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.501    <hidden>
+
+Slack (MET) :             0.501ns  (required time - arrival time)
+  Source:                 u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_core/g_engine[0].u_engine/block_high_reg[1][1][8]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.016ns  (logic 3.860ns (42.815%)  route 5.156ns (57.185%))
+  Logic Levels:           10  (CARRY4=5 LUT2=1 LUT3=2 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.035ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.911ns = ( 14.911 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.205ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  clk100mhz
+                         net (fo=0)                   0.000     0.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.603     5.205    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X65Y121        FDRE                                         r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y121        FDRE (Prop_fdre_C_Q)         0.456     5.661 r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/Q
+                         net (fo=106, routed)         0.694     6.356    u_core/g_engine[0].u_engine/scan_first_pipe
+    SLICE_X63Y121        LUT3 (Prop_lut3_I0_O)        0.124     6.480 r  u_core/g_engine[0].u_engine/cumulative[3]_i_9/O
+                         net (fo=1, routed)           0.000     6.480    u_core/g_engine[0].u_engine/cumulative[3]_i_9_n_0
+    SLICE_X63Y121        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.030 r  u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.030    u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2_n_0
+    SLICE_X63Y122        CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.269 r  u_core/g_engine[0].u_engine/cumulative_reg[7]_i_2/O[2]
+                         net (fo=4, routed)           0.612     7.881    u_core/g_engine[0].u_engine/cumulative_next[6]
+    SLICE_X65Y122        LUT2 (Prop_lut2_I1_O)        0.302     8.183 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33/O
+                         net (fo=1, routed)           0.000     8.183    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33_n_0
+    SLICE_X65Y122        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.733 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27/CO[3]
+                         net (fo=1, routed)           0.000     8.733    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27_n_0
+    SLICE_X65Y123        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.067 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_25/O[1]
+                         net (fo=2, routed)           0.840     9.906    u_core/g_engine[0].u_engine/u_step/five_cumulative[10]
+    SLICE_X64Y125        LUT3 (Prop_lut3_I0_O)        0.303    10.209 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13/O
+                         net (fo=1, routed)           0.000    10.209    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13_n_0
+    SLICE_X64Y125        CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570    10.779 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6/CO[2]
+                         net (fo=3, routed)           0.719    11.498    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6_n_1
+    SLICE_X64Y130        LUT4 (Prop_lut4_I0_O)        0.313    11.811 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_5/O
+                         net (fo=107, routed)         1.290    13.101    u_core/g_engine[0].u_engine/selected0
+    SLICE_X57Y140        LUT5 (Prop_lut5_I4_O)        0.119    13.220 r  u_core/g_engine[0].u_engine/block_high[1][1][10]_i_1/O
+                         net (fo=13, routed)          1.001    14.221    u_core/g_engine[0].u_engine/block_high[1][1][10]_i_1_n_0
+    SLICE_X63Y134        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][1][8]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  clk100mhz
+                         net (fo=0)                   0.000    10.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.489    14.911    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X63Y134        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][1][8]/C
+                         clock pessimism              0.259    15.170    <hidden>
+                         clock uncertainty           -0.035    15.135    <hidden>
+    SLICE_X63Y134        FDRE (Setup_fdre_C_CE)      -0.413    14.722    u_core/g_engine[0].u_engine/block_high_reg[1][1][8]
+  -------------------------------------------------------------------
+                         required time                         14.722    <hidden>
+                         arrival time                         -14.221    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.501    <hidden>
+
+Slack (MET) :             0.502ns  (required time - arrival time)
+  Source:                 u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_core/g_engine[0].u_engine/block_high_reg[0][9][7]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.185ns  (logic 4.087ns (44.498%)  route 5.098ns (55.502%))
+  Logic Levels:           10  (CARRY4=5 LUT2=1 LUT3=2 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.031ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.915ns = ( 14.915 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.205ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  clk100mhz
+                         net (fo=0)                   0.000     0.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.603     5.205    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X65Y121        FDRE                                         r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y121        FDRE (Prop_fdre_C_Q)         0.456     5.661 r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/Q
+                         net (fo=106, routed)         0.694     6.356    u_core/g_engine[0].u_engine/scan_first_pipe
+    SLICE_X63Y121        LUT3 (Prop_lut3_I0_O)        0.124     6.480 r  u_core/g_engine[0].u_engine/cumulative[3]_i_9/O
+                         net (fo=1, routed)           0.000     6.480    u_core/g_engine[0].u_engine/cumulative[3]_i_9_n_0
+    SLICE_X63Y121        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.030 r  u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.030    u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2_n_0
+    SLICE_X63Y122        CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.269 r  u_core/g_engine[0].u_engine/cumulative_reg[7]_i_2/O[2]
+                         net (fo=4, routed)           0.612     7.881    u_core/g_engine[0].u_engine/cumulative_next[6]
+    SLICE_X65Y122        LUT2 (Prop_lut2_I1_O)        0.302     8.183 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33/O
+                         net (fo=1, routed)           0.000     8.183    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33_n_0
+    SLICE_X65Y122        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.733 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27/CO[3]
+                         net (fo=1, routed)           0.000     8.733    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27_n_0
+    SLICE_X65Y123        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.067 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_25/O[1]
+                         net (fo=2, routed)           0.840     9.906    u_core/g_engine[0].u_engine/u_step/five_cumulative[10]
+    SLICE_X64Y125        LUT3 (Prop_lut3_I0_O)        0.303    10.209 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13/O
+                         net (fo=1, routed)           0.000    10.209    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13_n_0
+    SLICE_X64Y125        CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570    10.779 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6/CO[2]
+                         net (fo=3, routed)           0.715    11.494    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6_n_1
+    SLICE_X64Y130        LUT4 (Prop_lut4_I0_O)        0.307    11.801 r  u_core/g_engine[0].u_engine/block_high[1][8][10]_i_4/O
+                         net (fo=120, routed)         1.606    13.408    u_core/g_engine[0].u_engine/block_high[1][8][10]_i_4_n_0
+    SLICE_X59Y144        LUT5 (Prop_lut5_I0_O)        0.352    13.760 r  u_core/g_engine[0].u_engine/block_high[1][9][7]_i_1/O
+                         net (fo=2, routed)           0.630    14.390    u_core/g_engine[0].u_engine/block_high[1][9][7]_i_1_n_0
+    SLICE_X58Y144        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[0][9][7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  clk100mhz
+                         net (fo=0)                   0.000    10.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.493    14.915    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X58Y144        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[0][9][7]/C
+                         clock pessimism              0.259    15.174    <hidden>
+                         clock uncertainty           -0.035    15.139    <hidden>
+    SLICE_X58Y144        FDRE (Setup_fdre_C_D)       -0.247    14.892    u_core/g_engine[0].u_engine/block_high_reg[0][9][7]
+  -------------------------------------------------------------------
+                         required time                         14.892    <hidden>
+                         arrival time                         -14.390    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.502    <hidden>
+
+Slack (MET) :             0.533ns  (required time - arrival time)
+  Source:                 u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_core/g_engine[0].u_engine/block_high_reg[1][2][7]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.022ns  (logic 3.860ns (42.785%)  route 5.162ns (57.215%))
+  Logic Levels:           10  (CARRY4=5 LUT2=1 LUT3=2 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.033ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.913ns = ( 14.913 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.205ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  clk100mhz
+                         net (fo=0)                   0.000     0.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.603     5.205    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X65Y121        FDRE                                         r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y121        FDRE (Prop_fdre_C_Q)         0.456     5.661 r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/Q
+                         net (fo=106, routed)         0.694     6.356    u_core/g_engine[0].u_engine/scan_first_pipe
+    SLICE_X63Y121        LUT3 (Prop_lut3_I0_O)        0.124     6.480 r  u_core/g_engine[0].u_engine/cumulative[3]_i_9/O
+                         net (fo=1, routed)           0.000     6.480    u_core/g_engine[0].u_engine/cumulative[3]_i_9_n_0
+    SLICE_X63Y121        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.030 r  u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.030    u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2_n_0
+    SLICE_X63Y122        CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.269 r  u_core/g_engine[0].u_engine/cumulative_reg[7]_i_2/O[2]
+                         net (fo=4, routed)           0.612     7.881    u_core/g_engine[0].u_engine/cumulative_next[6]
+    SLICE_X65Y122        LUT2 (Prop_lut2_I1_O)        0.302     8.183 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33/O
+                         net (fo=1, routed)           0.000     8.183    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33_n_0
+    SLICE_X65Y122        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.733 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27/CO[3]
+                         net (fo=1, routed)           0.000     8.733    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27_n_0
+    SLICE_X65Y123        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.067 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_25/O[1]
+                         net (fo=2, routed)           0.840     9.906    u_core/g_engine[0].u_engine/u_step/five_cumulative[10]
+    SLICE_X64Y125        LUT3 (Prop_lut3_I0_O)        0.303    10.209 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13/O
+                         net (fo=1, routed)           0.000    10.209    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13_n_0
+    SLICE_X64Y125        CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570    10.779 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6/CO[2]
+                         net (fo=3, routed)           0.719    11.498    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6_n_1
+    SLICE_X64Y130        LUT4 (Prop_lut4_I0_O)        0.313    11.811 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_5/O
+                         net (fo=107, routed)         1.312    13.123    u_core/g_engine[0].u_engine/selected0
+    SLICE_X57Y139        LUT5 (Prop_lut5_I4_O)        0.119    13.242 r  u_core/g_engine[0].u_engine/block_high[1][2][10]_i_1/O
+                         net (fo=13, routed)          0.985    14.227    u_core/g_engine[0].u_engine/block_high[1][2][10]_i_1_n_0
+    SLICE_X66Y136        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][2][7]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  clk100mhz
+                         net (fo=0)                   0.000    10.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.491    14.913    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X66Y136        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][2][7]/C
+                         clock pessimism              0.259    15.172    <hidden>
+                         clock uncertainty           -0.035    15.137    <hidden>
+    SLICE_X66Y136        FDRE (Setup_fdre_C_CE)      -0.377    14.760    u_core/g_engine[0].u_engine/block_high_reg[1][2][7]
+  -------------------------------------------------------------------
+                         required time                         14.760    <hidden>
+                         arrival time                         -14.227    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.533    <hidden>
+
+Slack (MET) :             0.533ns  (required time - arrival time)
+  Source:                 u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_core/g_engine[0].u_engine/block_high_reg[1][2][8]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.022ns  (logic 3.860ns (42.785%)  route 5.162ns (57.215%))
+  Logic Levels:           10  (CARRY4=5 LUT2=1 LUT3=2 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.033ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.913ns = ( 14.913 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.205ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  clk100mhz
+                         net (fo=0)                   0.000     0.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.603     5.205    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X65Y121        FDRE                                         r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y121        FDRE (Prop_fdre_C_Q)         0.456     5.661 r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/Q
+                         net (fo=106, routed)         0.694     6.356    u_core/g_engine[0].u_engine/scan_first_pipe
+    SLICE_X63Y121        LUT3 (Prop_lut3_I0_O)        0.124     6.480 r  u_core/g_engine[0].u_engine/cumulative[3]_i_9/O
+                         net (fo=1, routed)           0.000     6.480    u_core/g_engine[0].u_engine/cumulative[3]_i_9_n_0
+    SLICE_X63Y121        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.030 r  u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.030    u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2_n_0
+    SLICE_X63Y122        CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.269 r  u_core/g_engine[0].u_engine/cumulative_reg[7]_i_2/O[2]
+                         net (fo=4, routed)           0.612     7.881    u_core/g_engine[0].u_engine/cumulative_next[6]
+    SLICE_X65Y122        LUT2 (Prop_lut2_I1_O)        0.302     8.183 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33/O
+                         net (fo=1, routed)           0.000     8.183    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33_n_0
+    SLICE_X65Y122        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.733 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27/CO[3]
+                         net (fo=1, routed)           0.000     8.733    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27_n_0
+    SLICE_X65Y123        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.067 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_25/O[1]
+                         net (fo=2, routed)           0.840     9.906    u_core/g_engine[0].u_engine/u_step/five_cumulative[10]
+    SLICE_X64Y125        LUT3 (Prop_lut3_I0_O)        0.303    10.209 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13/O
+                         net (fo=1, routed)           0.000    10.209    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13_n_0
+    SLICE_X64Y125        CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570    10.779 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6/CO[2]
+                         net (fo=3, routed)           0.719    11.498    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6_n_1
+    SLICE_X64Y130        LUT4 (Prop_lut4_I0_O)        0.313    11.811 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_5/O
+                         net (fo=107, routed)         1.312    13.123    u_core/g_engine[0].u_engine/selected0
+    SLICE_X57Y139        LUT5 (Prop_lut5_I4_O)        0.119    13.242 r  u_core/g_engine[0].u_engine/block_high[1][2][10]_i_1/O
+                         net (fo=13, routed)          0.985    14.227    u_core/g_engine[0].u_engine/block_high[1][2][10]_i_1_n_0
+    SLICE_X66Y136        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][2][8]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  clk100mhz
+                         net (fo=0)                   0.000    10.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.491    14.913    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X66Y136        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][2][8]/C
+                         clock pessimism              0.259    15.172    <hidden>
+                         clock uncertainty           -0.035    15.137    <hidden>
+    SLICE_X66Y136        FDRE (Setup_fdre_C_CE)      -0.377    14.760    u_core/g_engine[0].u_engine/block_high_reg[1][2][8]
+  -------------------------------------------------------------------
+                         required time                         14.760    <hidden>
+                         arrival time                         -14.227    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.533    <hidden>
+
+Slack (MET) :             0.608ns  (required time - arrival time)
+  Source:                 u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_core/g_engine[0].u_engine/block_high_reg[1][9][10]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.091ns  (logic 4.087ns (44.959%)  route 5.004ns (55.041%))
+  Logic Levels:           10  (CARRY4=5 LUT2=1 LUT3=2 LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.031ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.915ns = ( 14.915 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.205ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  clk100mhz
+                         net (fo=0)                   0.000     0.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.603     5.205    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X65Y121        FDRE                                         r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y121        FDRE (Prop_fdre_C_Q)         0.456     5.661 r  u_core/g_engine[0].u_engine/scan_first_pipe_reg/Q
+                         net (fo=106, routed)         0.694     6.356    u_core/g_engine[0].u_engine/scan_first_pipe
+    SLICE_X63Y121        LUT3 (Prop_lut3_I0_O)        0.124     6.480 r  u_core/g_engine[0].u_engine/cumulative[3]_i_9/O
+                         net (fo=1, routed)           0.000     6.480    u_core/g_engine[0].u_engine/cumulative[3]_i_9_n_0
+    SLICE_X63Y121        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.030 r  u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.030    u_core/g_engine[0].u_engine/cumulative_reg[3]_i_2_n_0
+    SLICE_X63Y122        CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     7.269 r  u_core/g_engine[0].u_engine/cumulative_reg[7]_i_2/O[2]
+                         net (fo=4, routed)           0.612     7.881    u_core/g_engine[0].u_engine/cumulative_next[6]
+    SLICE_X65Y122        LUT2 (Prop_lut2_I1_O)        0.302     8.183 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33/O
+                         net (fo=1, routed)           0.000     8.183    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_33_n_0
+    SLICE_X65Y122        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.733 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27/CO[3]
+                         net (fo=1, routed)           0.000     8.733    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_27_n_0
+    SLICE_X65Y123        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.067 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_25/O[1]
+                         net (fo=2, routed)           0.840     9.906    u_core/g_engine[0].u_engine/u_step/five_cumulative[10]
+    SLICE_X64Y125        LUT3 (Prop_lut3_I0_O)        0.303    10.209 r  u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13/O
+                         net (fo=1, routed)           0.000    10.209    u_core/g_engine[0].u_engine/block_high[1][0][10]_i_13_n_0
+    SLICE_X64Y125        CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570    10.779 r  u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6/CO[2]
+                         net (fo=3, routed)           0.715    11.494    u_core/g_engine[0].u_engine/block_high_reg[1][0][10]_i_6_n_1
+    SLICE_X64Y130        LUT4 (Prop_lut4_I0_O)        0.307    11.801 r  u_core/g_engine[0].u_engine/block_high[1][8][10]_i_4/O
+                         net (fo=120, routed)         1.285    13.086    u_core/g_engine[0].u_engine/block_high[1][8][10]_i_4_n_0
+    SLICE_X62Y142        LUT5 (Prop_lut5_I0_O)        0.352    13.438 r  u_core/g_engine[0].u_engine/block_high[1][9][10]_i_2/O
+                         net (fo=2, routed)           0.858    14.296    u_core/g_engine[0].u_engine/block_high[1][9][10]_i_2_n_0
+    SLICE_X58Y145        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][9][10]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  clk100mhz
+                         net (fo=0)                   0.000    10.000    clk100mhz
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clk100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    clk100mhz_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  clk100mhz_IBUF_BUFG_inst/O
+                         net (fo=4115, routed)        1.493    14.915    u_core/g_engine[0].u_engine/clk100mhz_IBUF_BUFG
+    SLICE_X58Y145        FDRE                                         r  u_core/g_engine[0].u_engine/block_high_reg[1][9][10]/C
+                         clock pessimism              0.259    15.174    <hidden>
+                         clock uncertainty           -0.035    15.139    <hidden>
+    SLICE_X58Y145        FDRE (Setup_fdre_C_D)       -0.235    14.904    u_core/g_engine[0].u_engine/block_high_reg[1][9][10]
+  -------------------------------------------------------------------
+                         required time                         14.904    <hidden>
+                         arrival time                         -14.296    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.608    <hidden>
+
+
+
+

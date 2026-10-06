@@ -1,0 +1,11 @@
+# Phase 0: forensic baseline import — PASS
+
+The source is the original `../final project.rar` (SHA256 `C999A29F95D11CA8630B661BF87FA479B755FE5BC629758B373E2B755A100508`). The archived streaming project path is `final project/Hardware-Implementation-of-the-Canny-Edge-Detection-Algorithm-main/`. Import was read-only against the archive and extracted project; all writes went into this separate workspace. `scripts/import_baseline.py` uses exclusive-create mode and will refuse to overwrite any imported file.
+
+Archived copies of 11 Verilog sources are in `baseline_original/archive/1.RTL/source/`; four testbenches are in `baseline_original/archive/1.RTL/sim/`; archived `.xpr` and README are in `baseline_original/archive/`. Working copies are in `rtl/baseline/` and `tb/baseline/`, and `images/monkey.bmp` came from the archive. The extracted source versions of every file that differed are kept under `baseline_original/extracted_differences/`. The full SHA256 for every archived and extracted source is in `reports/import_hashes.csv`; source differences are in `reports/archive_extracted_diff.txt`.
+
+Archive versus extracted comparison: nine of 11 RTL files are byte-identical. `canny_edge_detect_top.v` differs in comments only. `canny_get_grandient.v` differs largely in comments, including the extracted standalone `-` on line 53 where the archive retains a complete comment; the archive version is the working baseline. The 4 testbenches, `monkey.bmp`, and README match byte-for-byte. The `.xpr` differs in Vivado UI launch count and strategy XML formatting/description; its A35T part, top, and source associations are unchanged. No `Working_canny` or Zynq file was imported.
+
+The archived BMP is a 921,654-byte, uncompressed, 24-bit, 640×480 BMP with a 54-byte pixel offset (checked from header). The copied `tb/baseline/canny_tb.sv` changes only its two Vivado simulation file paths to `images/monkey.bmp` and `results/phase1/outcom.bmp`, so batch simulation can run from this workspace root. Its forensic archived counterpart is untouched.
+
+This phase establishes provenance and a compile-candidate copy. It does **not** establish that the archived RTL compiles or computes correct edges; see `reports/PHASE1_BASELINE_COMPILE.md`.

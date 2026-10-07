@@ -81,6 +81,9 @@ processing_ms=3.39885
 mismatches=0
 checksum=PASS
 status=PASS
+```
+
+`3.39885 ms` is an **analytical/simulation-derived processing time at 100 MHz**, not a physically measured board latency.
 
 ---
 
@@ -227,12 +230,12 @@ The high wrapper-level BRAM use therefore includes the complete test-image ROM a
 
 The multi-engine experiment showed that duplicating adaptive threshold engines did not improve system-level throughput.
 
-Measured adaptive-service and frame-start cadence remained:
+Measured frame-start cadence remained:
 
 ```text
-E=1 : 318,968-cycle frame-start cadence
-E=2 : 318,968-cycle frame-start cadence
-E=4 : 318,968-cycle frame-start cadence
+E=1 : 318,968 cycles
+E=2 : 318,968 cycles
+E=4 : 318,968 cycles
 ```
 
 At 100 MHz, this corresponds analytically to approximately:
@@ -323,8 +326,6 @@ Expected synchronization result:
 PHASE11_SYNC_COPY_PASS modules=12 reset_sensitivity_changes=19 other_byte_changes=0
 ```
 
----
-
 ### 2. Generate Phase 6 streams
 
 Later regressions depend on generated Phase 6 streams:
@@ -341,8 +342,6 @@ results/phase6/fixed.stream
 results/phase6/isolate.stream
 ```
 
----
-
 ### 3. Generate Phase 8 oracle data
 
 ```powershell
@@ -356,8 +355,6 @@ These generate, among other files:
 results/phase8/adaptive_nms.mem
 results/phase8/isolate_nms.mem
 ```
-
----
 
 ### 4. Generate Phase 9 regression vectors
 
@@ -373,8 +370,6 @@ PHASE9_ORACLE_PASS size=32 bins=32 suite=two
 PHASE9_ORACLE_PASS size=32 bins=32 suite=isolate
 ```
 
----
-
 ### 5. Run the final core regression
 
 ```powershell
@@ -387,8 +382,6 @@ Expected final marker:
 PHASE10_RTL_PASS engines=1 suite=two frames=2 pixels=614400
 blocks=600 mismatches=0 unknowns=0
 ```
-
----
 
 ### 6. Run the board-wrapper and UART simulation
 
@@ -411,8 +404,6 @@ python host/phase11/capture_board_output.py `
   --output results/phase11/sim_uart_reconstruction.png
 ```
 
----
-
 ### 7. Build the final Vivado implementation
 
 ```powershell
@@ -420,8 +411,6 @@ python host/phase11/capture_board_output.py `
 ```
 
 This builds the final XC7A100T project, performs synthesis and implementation, and produces timing, utilization, DRC and power reports.
-
----
 
 ### 8. Generate the bitstream
 

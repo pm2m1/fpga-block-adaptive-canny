@@ -1,4 +1,4 @@
-# Resource-Scalable Block-Adaptive Canny Edge Detector on Artix-7
+# Resource-Scalable Block-Adaptive Canny Edge Detector on Xilinx Artix-7 FPGA
 
 A Verilog implementation of a **block-adaptive Canny edge detector** targeting the Xilinx Artix-7 XC7A100T FPGA.
 

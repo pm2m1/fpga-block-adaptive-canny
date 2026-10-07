@@ -2,6 +2,14 @@
 from pathlib import Path
 import re
 
+def normalized_bytes(path):
+    return (
+        path.read_bytes()
+        .replace(b'\r\n', b'\n')
+        .replace(b'\r', b'\n')
+    )
+
+
 root = Path(__file__).resolve().parents[2]
 pairs = [
     ('rtl/baseline/fifo_ram.v', 'fifo_ram.v'),
@@ -20,9 +28,9 @@ pairs = [
 pattern = re.compile(rb'@\s*\(\s*posedge\s+clk\s+or\s+negedge\s+(rst_n|rst_s)\s*\)')
 changes = 0
 for source, name in pairs:
-    original = (root / source).read_bytes()
+    original = normalized_bytes(root / source)
     expected, count = pattern.subn(b'@(posedge clk)', original)
-    actual = (root / 'rtl/phase11/core' / name).read_bytes()
+    actual = normalized_bytes(root / 'rtl/phase11/core' / name)
     assert actual == expected, f'unexpected difference in {name}'
     changes += count
 assert changes == 19, changes

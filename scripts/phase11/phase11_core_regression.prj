@@ -1,2 +1,3 @@
+verilog xil_defaultlib "../../rtl/phase9/stripe_threshold_engine_phase9.v"
 verilog xil_defaultlib "../../rtl/phase9/canny_block_adaptive_phase9_top.v"
 sv xil_defaultlib "../../tb/phase10/tb_phase10.sv"

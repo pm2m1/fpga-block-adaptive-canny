@@ -61,9 +61,13 @@ The hardware's final edge-linking stage is **one-pass local weak-edge promotion*
 
 ## Example output
 
-The final board-wrapper simulation captures a packed 1-bit edge frame and serializes it through the simulated UART interface. The host-side Python utility reconstructs that packet into an image.
+The final board-wrapper simulation processes a stored 640×480 grayscale image and reconstructs the packed 1-bit edge map through the simulated UART packet path.
 
-### Simulated edge-map reconstruction
+### Input image
+
+![640x480 grayscale input](docs/images/monkey_input.png)
+
+### Reconstructed edge output
 
 ![Simulated UART edge-map reconstruction](docs/images/edge_output.jpeg)
 
@@ -77,9 +81,6 @@ processing_ms=3.39885
 mismatches=0
 checksum=PASS
 status=PASS
-```
-
-`3.39885 ms` is an **analytical/simulation-derived processing time at 100 MHz**, not a physically measured board latency.
 
 ---
 

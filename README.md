@@ -59,6 +59,30 @@ The hardware's final edge-linking stage is **one-pass local weak-edge promotion*
 
 ---
 
+## Example output
+
+The final board-wrapper simulation captures a packed 1-bit edge frame and serializes it through the simulated UART interface. The host-side Python utility reconstructs that packet into an image.
+
+### Simulated edge-map reconstruction
+
+![Simulated UART edge-map reconstruction](docs/images/edge_output.jpeg)
+
+The reconstructed frame was compared against the expected reference:
+
+```text
+pixels=307200
+payload_bytes=38400
+processing_cycles=339885
+processing_ms=3.39885
+mismatches=0
+checksum=PASS
+status=PASS
+```
+
+`3.39885 ms` is an **analytical/simulation-derived processing time at 100 MHz**, not a physically measured board latency.
+
+---
+
 ## Final configuration
 
 The design space included:
@@ -67,9 +91,9 @@ The design space included:
 - 8, 16 and 32 histogram bins
 - 1, 2 and 4 adaptive threshold engines
 
-All tested engine counts produced the same tested edge maps.
+All tested adaptive-engine counts produced the same tested edge results.
 
-Replicating adaptive engines increased FPGA resource use but did **not** improve end-to-end frame cadence because the architecture still has a shared one-pixel-per-clock front end and ordered one-pixel-per-clock output path.
+Replicating adaptive engines increased FPGA resource use but did **not** improve end-to-end frame cadence because the architecture still uses a shared one-pixel-per-clock input front end and ordered one-pixel-per-clock output path.
 
 For that reason, the final implementation uses:
 
@@ -106,16 +130,14 @@ The RTL was compared against a bit-accurate Python reference model at multiple s
 | Physical UART capture | NOT PERFORMED |
 | Physical power measurement | NOT PERFORMED |
 
-A fresh clone of this repository reproduced the final core regression, wrapper simulation, UART reconstruction, routed implementation checks and bitstream generation.
-
-The final core regression reported:
+The final two-frame core regression reported:
 
 ```text
 PHASE10_RTL_PASS engines=1 suite=two frames=2 pixels=614400
 blocks=600 mismatches=0 unknowns=0
 ```
 
-The board-wrapper simulation reported:
+The final board-wrapper simulation reported:
 
 ```text
 PHASE11_WRAPPER_PASS
@@ -126,33 +148,13 @@ unknowns=0
 processing_cycles=339885
 ```
 
-The simulated UART packet reconstruction also compared all 307,200 pixels with zero mismatches.
-
----
-
-## Example output
-
-The simulated board wrapper stores the binary edge frame and serializes it through the UART packet format. The host-side Python utility reconstructs the packed 1-bit raster as a PNG.
-
-Example reconstruction:
-
-```text
-pixels=307200
-payload_bytes=38400
-processing_cycles=339885
-processing_ms=3.39885
-mismatches=0
-checksum=PASS
-status=PASS
-```
-
-`3.39885 ms` is an **analytical/simulation-derived processing time at 100 MHz**, not a physically measured board latency.
+The UART packet simulation and host-side reconstruction also compared all 307,200 pixels with zero mismatches.
 
 ---
 
 ## FPGA implementation results
 
-Target device:
+Target FPGA:
 
 ```text
 XC7A100T-1CSG324C
@@ -163,6 +165,10 @@ Target clock:
 ```text
 100 MHz
 ```
+
+### Post-route implementation
+
+![Vivado post-route timing closure](docs/images/vivado_timing.jpeg)
 
 Final routed timing:
 
@@ -183,6 +189,10 @@ All user specified timing constraints are met.
 
 Bitstream generation completed successfully for the XC7A100T.
 
+### Implementation resources
+
+![Vivado implementation resource summary](docs/images/vivado_resources.jpeg)
+
 ---
 
 ## Resource scaling
@@ -196,29 +206,27 @@ Bitstream generation completed successfully for the XC7A100T.
 
 The final wrapper uses approximately **90.4% of the device's BRAM18-equivalent capacity**.
 
-Its BRAM usage is approximately:
+Approximate BRAM18-equivalent usage:
 
 ```text
-Algorithm core      : 52 BRAM18 equivalents
-Input image storage : 160 BRAM18 equivalents
-Packed output frame : 32 BRAM18 equivalents
----------------------------------------------
-Total               : 244 BRAM18 equivalents
+Algorithm core      : 52
+Input image storage : 160
+Packed output frame : 32
+-------------------------
+Total               : 244
 ```
 
-Vivado's GUI reports this as 122 BRAM tiles because one RAMB36 tile corresponds to two RAMB18 equivalents.
+Vivado's GUI reports 122 BRAM tiles because one RAMB36 tile corresponds to two RAMB18 equivalents.
 
-The large board-wrapper memory use therefore includes the stored test image and complete output frame buffer; it is not solely the Canny processing core.
+The high wrapper-level BRAM use therefore includes the complete test-image ROM and packed output frame buffer; it is not solely the Canny processing core.
 
 ---
 
-## Adaptive design-space observations
+## Adaptive-engine scaling
 
-The reduced-bin local histogram introduces quantization relative to an exact 2048-level histogram.
+The multi-engine experiment showed that duplicating adaptive threshold engines did not improve system-level throughput.
 
-For the selected 32×32 / 32-bin configuration, the measured threshold approximation error remained bounded by the 64-level bin width.
-
-The multi-engine study showed that simply duplicating threshold engines does not guarantee system-level acceleration:
+Measured adaptive-service and frame-start cadence remained:
 
 ```text
 E=1 : 318,968-cycle frame-start cadence
@@ -226,13 +234,15 @@ E=2 : 318,968-cycle frame-start cadence
 E=4 : 318,968-cycle frame-start cadence
 ```
 
-At 100 MHz, this corresponds analytically to about:
+At 100 MHz, this corresponds analytically to approximately:
 
 ```text
 313.51 frame starts / second
 ```
 
 This is a **core cadence estimate**, not measured camera throughput or physical-board FPS.
+
+The result identifies the shared one-pixel-per-clock front end and ordered output path as the system bottleneck.
 
 ---
 
@@ -246,13 +256,15 @@ Dynamic       : 0.101 W
 Total         : 0.204 W
 ```
 
+![Vivado vectorless power estimate](docs/images/vivado_power.jpeg)
+
 This is a **low-confidence vectorless FPGA power estimate**.
 
 It is not a physical-board power measurement.
 
 ---
 
-## Nexys A7 wrapper
+## Nexys A7 board wrapper
 
 The final wrapper targets the **Digilent Nexys A7-100T** and contains:
 
@@ -270,15 +282,15 @@ It does **not** contain:
 - Ethernet
 - Zynq processing system
 
-The bitstream was generated successfully, but a physical Nexys A7 board was not available for final hardware testing.
+A bitstream was generated successfully, but a physical Nexys A7 board was not available for final hardware testing.
 
 Therefore this project does **not** claim:
 
-- physical FPGA deployment results
-- measured board FPS
-- measured board latency
+- measured physical-board FPS
+- measured board processing latency
 - measured UART throughput
 - measured board power
+- successful physical FPGA deployment
 
 ---
 
@@ -296,7 +308,7 @@ Set the Vivado binary directory first:
 $env:VIVADO_BIN = "C:\AMDDesignTools\2026.1\Vivado\bin"
 ```
 
-### 1. Generate final wrapper assets
+### 1. Generate and verify Phase 11 assets
 
 ```powershell
 python scripts/phase11/generate_assets.py
@@ -304,13 +316,17 @@ python scripts/phase11/verify_sync_core.py
 python host/phase11/test_protocol.py
 ```
 
-Expected sync-copy result:
+Expected synchronization result:
 
 ```text
 PHASE11_SYNC_COPY_PASS modules=12 reset_sensitivity_changes=19 other_byte_changes=0
 ```
 
-### 2. Generate Phase 6 streams required by later regressions
+---
+
+### 2. Generate Phase 6 streams
+
+Later regressions depend on generated Phase 6 streams:
 
 ```powershell
 & scripts/phase6/run_trace.ps1 -Suite fixed
@@ -324,7 +340,9 @@ results/phase6/fixed.stream
 results/phase6/isolate.stream
 ```
 
-### 3. Generate Phase 8 reference data
+---
+
+### 3. Generate Phase 8 oracle data
 
 ```powershell
 python scripts/phase8/prepare_adaptive_oracle.py
@@ -338,6 +356,8 @@ results/phase8/adaptive_nms.mem
 results/phase8/isolate_nms.mem
 ```
 
+---
+
 ### 4. Generate Phase 9 regression vectors
 
 ```powershell
@@ -345,12 +365,14 @@ python scripts/phase9/prepare_rtl_oracle.py --block 32 --bins 32 --suite two
 python scripts/phase9/prepare_rtl_oracle.py --block 32 --bins 32 --suite isolate
 ```
 
-Expected results include:
+Expected markers include:
 
 ```text
 PHASE9_ORACLE_PASS size=32 bins=32 suite=two
 PHASE9_ORACLE_PASS size=32 bins=32 suite=isolate
 ```
+
+---
 
 ### 5. Run the final core regression
 
@@ -365,6 +387,8 @@ PHASE10_RTL_PASS engines=1 suite=two frames=2 pixels=614400
 blocks=600 mismatches=0 unknowns=0
 ```
 
+---
+
 ### 6. Run the board-wrapper and UART simulation
 
 ```powershell
@@ -378,7 +402,7 @@ PHASE11_WRAPPER_PASS
 PHASE11_UART_PACKET_PASS
 ```
 
-Reconstruct the simulated UART result:
+Reconstruct the simulated UART output:
 
 ```powershell
 python host/phase11/capture_board_output.py `
@@ -386,13 +410,17 @@ python host/phase11/capture_board_output.py `
   --output results/phase11/sim_uart_reconstruction.png
 ```
 
+---
+
 ### 7. Build the final Vivado implementation
 
 ```powershell
 & scripts/phase11/run_vivado.ps1
 ```
 
-This creates the final XC7A100T implementation, performs synthesis and routing, and produces timing, utilization, DRC and power reports.
+This builds the final XC7A100T project, performs synthesis and implementation, and produces timing, utilization, DRC and power reports.
+
+---
 
 ### 8. Generate the bitstream
 
@@ -406,7 +434,7 @@ The reproduced build completed with:
 PHASE11_BITSTREAM_READY=results/phase11/canny_nexys_a7.bit WNS=0.436
 ```
 
-The script independently checks routed timing and DRC before writing the bitstream.
+The bitstream script checks routed timing and DRC before writing the `.bit` file.
 
 ---
 
@@ -440,7 +468,7 @@ reports/
     Selected experiment and implementation reports
 ```
 
-Generated Vivado projects, simulation databases and large vector files are intentionally excluded from normal Git tracking.
+Generated Vivado projects, simulation databases and large generated vector files are intentionally excluded from normal Git tracking.
 
 ---
 
@@ -456,7 +484,7 @@ See:
 
 [Phase 11V no-board validation report](reports/PHASE11V_NO_BOARD_VALIDATION.md)
 
-Static timing analysis and post-route functional simulation both pass, but the unresolved SDF discrepancy is kept documented rather than hidden.
+Static timing analysis and post-route functional simulation both pass, but the unresolved SDF discrepancy remains documented.
 
 ---
 
@@ -478,7 +506,7 @@ See:
 
 [Bitstream identity record](reports/phase11v/bitstream_identity.txt)
 
-The bitstream is not treated as normal source code and physical-board validation was not performed.
+The bitstream is not treated as normal source code, and physical-board validation was not performed.
 
 ---
 
@@ -496,4 +524,4 @@ Additional details are available in:
 
 ## Project status
 
-**Complete — RTL and Python models verified, post-route implementation validated, 100 MHz timing closed, and Artix-7 bitstream generated. Physical-board validation was not performed, and the post-route SDF timing-simulation discrepancy remains unresolved.**
+**Complete — RTL and Python models verified, post-route implementation validated, 100 MHz timing closed, and an Artix-7 bitstream generated. Physical-board validation was not performed, and the post-route SDF timing-simulation discrepancy remains unresolved.**

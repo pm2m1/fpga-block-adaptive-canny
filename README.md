@@ -515,3 +515,11 @@ Additional details are available in:
 ## Project status
 
 **Complete — RTL and Python models verified, post-route implementation validated, 100 MHz timing closed, and an Artix-7 bitstream generated. Physical-board validation was not performed, and the post-route SDF timing-simulation discrepancy remains unresolved.**
+
+## License
+
+The original project code is licensed under the [MIT License](LICENSE).
+
+Third-party material, where applicable, remains subject to its
+respective copyright and license terms.
+

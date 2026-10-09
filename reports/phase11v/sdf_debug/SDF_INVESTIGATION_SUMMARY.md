@@ -1,0 +1,15 @@
+# SDF debug summary
+
+Status: **UNRESOLVED**, not a timing-simulation pass. Production RTL unchanged; timing checks and warnings were not disabled or suppressed.
+
+- First slow/MAX warning: `RAMB36E1` `g_bank[0].stripe_reg_0_0`, `ADDRARDADDR[0]` versus `CLKARDCLK`, hold, 1.390667 µs; 339 ps observed against 360 ps SDF limit. The first ten complete warnings are in `first_10_warnings.tsv`.
+- Routed STA for that exact bank-0 address endpoint: +0.505 ns fast hold and +1.189 ns slow hold. Design WHS +0.034 ns, zero failing endpoints.
+- The original fast/MIN SDF run, with explicit 0% pulse rejection, annotated successfully and produced zero timing warnings through 250.29 µs. That does **not** validate output: the counter X prevented input/BRAM activity, and the timing bench checked zero pixels.
+- A diagnostic bench with reset/start on falling edges and a longer 600 ns reset still saw no input-valid by 10 µs. A 700–1290 ns VCD trace localized the first captured counter-fanin X to `LUT4 u_uart/pre_count[7]_i_5/O` (`u_uart_n_9`) at 906.825 ns, before bit-5 D at 1067.166 ns and bit-5 Q at 1076.648 ns. Its four driving counter bits were known; reset, GSR, and CE were known. The intra-primitive SDF mechanism remains open.
+- The **same timing netlist and testbench without SDF annotation** had zero counter/control X transitions in that waveform window and began input streaming at 1645 ns (812 valid input samples by 10 µs). Fast/MIN SDF had no input-valid by 10 µs. This isolates the startup-X effect to annotation, not to missing `FDRE` initialization or the negedge testbench stimulus.
+- Routed STA to `pre_count_reg[5]/D`: +0.408 ns fast hold and +7.614 ns setup. No SDF timing warning accompanies the earliest LUT X. XSim's existing explicit 0% pulse-rejection options cause this startup X: a separate fast/MIN snapshot using the documented default 100% pulse handling had no counter/control X in the 700–1290 ns capture and began input streaming at 1645 ns. Timing checks remained enabled.
+- Default-pulse fast/MIN did **not** resolve SDF validation. Its first `RAMB36E1` address/clock hold warning occurred at 1,946,617 ps (77 ps observed, 180 ps limit), and 10,348 timing-violation lines occurred by 10 µs. No output pixel was checked. The old zero-pulse run's zero warnings through 250.29 µs were before useful streaming/BRAM activity, so they do not demonstrate hold correctness.
+- The older bitstream-identity text (`f603a8f`, 2026-10-06) does not match the local ignored bitstream/checkpoint bytes or bitstream SHA; the local files were written 2026-10-07. Local SDF/netlist/checkpoint consistency is established; linkage to the older identity record is not. Historical hashes were not changed.
+- RTL core, wrapper RTL, and simulated UART regressions still pass. No full-frame SDF output has been checked, and no physical board test was performed.
+
+Reproduction scripts are in `scripts/phase11v/sdf_debug/`. Keep raw XSim logs, generated SDF/netlists, snapshots, `.wdb`, and Vivado journals out of Git. Do not turn the README row into PASS without resolving the BRAM hold warnings and checking useful output without unresolved violations.
